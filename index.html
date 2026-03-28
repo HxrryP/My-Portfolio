@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Porfolio - Paclibar, Harry T.</title>
+  <title>Portfolio - Paclibar, Harry T.</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -250,7 +250,7 @@
         border-bottom: 1px solid var(--line);
         box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         max-height: calc(100vh - var(--nav-h));
-        overflow-y: auto; /* Fallback for very short screens */
+        overflow-y: auto;
       }
       .nav-links.open { 
         transform: translateY(0); 
@@ -265,7 +265,6 @@
       }
       .nav-links a::after { display: none !important; }
 
-      /* ALL SUB-MENUS VISIBLE IMMEDIATELY ON MOBILE */
       .dropdown-menu {
         position: static !important;
         transform: none !important;
@@ -282,7 +281,6 @@
       .dropdown-menu a { padding: .7rem 1.2rem; font-size: .76rem; }
       .dropdown-menu .group-label { padding: .5rem 1.2rem .1rem; }
 
-      /* Submenu triggers become unclickable section labels on mobile */
       .dropdown-trigger { 
         pointer-events: none; 
         color: var(--gold-lt) !important;
@@ -431,6 +429,32 @@
       transition: background 0.4s, color 0.4s;
     }
 
+    /* ── CUSTOM ABOUT ME STYLES ── */
+    .about-subsection { margin-top: 2rem; max-width: 580px; }
+    .about-subheading { 
+      color: var(--gold); 
+      font-family: 'DM Sans', sans-serif; 
+      font-size: 0.8rem; 
+      letter-spacing: 0.15em; 
+      text-transform: uppercase; 
+      margin-bottom: 0.6rem; 
+      transition: color 0.4s;
+    }
+    .about-list {
+      color: var(--muted); 
+      font-size: 0.9rem; 
+      list-style-type: none; 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+      gap: 0.6rem;
+      transition: color 0.4s;
+    }
+    .about-list li::before {
+      content: '—';
+      color: var(--gold);
+      margin-right: 0.5rem;
+    }
+
     /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
@@ -453,7 +477,7 @@
 
   <a href="#home" class="nav-logo">
     <span class="logo-course">Portfolio</span>
-    <span class="logo-title">Harry T.Paclibar</span>
+    <span class="logo-title">Harry T. Paclibar</span>
   </a>
 
   <ul class="nav-links" id="navLinks">
@@ -497,8 +521,8 @@
     documenting growth and advocacy for inclusive practice.
   </p>
   <div class="hero-cta">
-    <a href="#introduction" class="btn-primary">Explore Portfolio</a>
-    <a href="#about"        class="btn-ghost">About Me</a>
+    <a href="#about"        class="btn-primary">About Me</a>
+    <a href="#work"         class="btn-ghost">Explore Work</a>
   </div>
   <div class="scroll-hint">
     <div class="scroll-line"></div>
@@ -509,69 +533,61 @@
 <section id="about">
   <p class="section-label">01 — Profile</p>
   <h2 class="section-title">About <em>Me</em></h2>
-  <p class="section-body">A brief background about who you are — your name, course, year level, institution, and personal aspirations in the field of inclusive education.</p>
-  <span class="coming-soon">Content Coming Soon</span>
-</section>
+  <p class="section-body">
+    I am a dedicated professional with experience providing technical support to end users in a corporate environment[cite: 25]. I have a proven track record of resolving complex technical issues quickly and efficiently, while providing excellent customer service[cite: 26]. I am adept at training users on new applications and technologies, working with remote users, and staying abreast of new developments in the IT industry[cite: 28].
+  </p>
 
+  <div class="about-subsection">
+    <h3 class="about-subheading">Education & Certifications</h3>
+    <p class="section-body" style="margin-top: 0; margin-bottom: 0.5rem;">
+      <strong>Bachelor of Science: Information Technology</strong><br>
+      Iloilo Science and Technology University - Lapaz, Iloilo City <br>
+      <span style="font-size: 0.8rem; opacity: 0.8;">Aug 2019 - Jul 2023 [cite: 30]</span>
+    </p>
+    <p class="section-body" style="margin-top: 0;">
+      <strong>Civil Service Examination Passer</strong><br>
+      Professional Level <br>
+      <span style="font-size: 0.8rem; opacity: 0.8;">August 2025 [cite: 44]</span>
+    </p>
+  </div>
+
+  <div class="about-subsection">
+    <h3 class="about-subheading">Core Skills</h3>
+    <ul class="about-list">
+      <li>Virtualization technologies [cite: 7]</li>
+      <li>Network administration [cite: 8]</li>
+      <li>Hardware/Software troubleshooting [cite: 9, 27]</li>
+      <li>Software implementation [cite: 10]</li>
+      <li>System upgrades & maintenance [cite: 11, 27]</li>
+      <li>Application installations & support [cite: 12, 13]</li>
+      <li>Technical issue analysis [cite: 14]</li>
+    </ul>
+  </div>
+</section>
 <section id="work">
-  <p class="section-label">02 — Overview</p>
-  <h2 class="section-title"><em>Introduction</em></h2>
-  <p class="section-body">An introduction to this portfolio — its purpose, the course it represents, and what you hope to demonstrate through the collected activities and reflections.</p>
+  <p class="section-label">02 — Experience</p>
+  <h2 class="section-title"><em>Work Experience</em></h2>
+  <p class="section-body">Details regarding past professional experience.</p>
   <span class="coming-soon">Content Coming Soon</span>
 </section>
 
-<section id="unit1">
-  <p class="section-label">03 — Activities</p>
-  <h2 class="section-title">Unit <em>1</em></h2>
-  <p class="section-body">Activities and learning outputs from Unit 1 of ED 205-F Foundation of Inclusive Education.</p>
-  <span class="coming-soon">Content Coming Soon</span>
-</section>
-
-<section id="unit2">
-  <p class="section-label">04 — Activities</p>
-  <h2 class="section-title">Unit <em>2</em></h2>
-  <p class="section-body">Activities and learning outputs from Unit 2 of ED 205-F Foundation of Inclusive Education.</p>
-  <span class="coming-soon">Content Coming Soon</span>
-</section>
-
-<section id="unit3">
-  <p class="section-label">05 — Activities</p>
-  <h2 class="section-title">Unit <em>3</em></h2>
-  <p class="section-body">Activities and learning outputs from Unit 3 of ED 205-F Foundation of Inclusive Education.</p>
-  <span class="coming-soon">Content Coming Soon</span>
-</section>
-
-<section id="unit4">
-  <p class="section-label">06 — Activities</p>
-  <h2 class="section-title">Unit <em>4</em></h2>
-  <p class="section-body">Activities and learning outputs from Unit 4 of ED 205-F Foundation of Inclusive Education.</p>
-  <span class="coming-soon">Content Coming Soon</span>
-</section>
-
-<section id="unit5">
-  <p class="section-label">07 — Activities</p>
-  <h2 class="section-title">Unit <em>5</em></h2>
-  <p class="section-body">Activities and learning outputs from Unit 5 of ED 205-F Foundation of Inclusive Education.</p>
+<section id="Projects">
+  <p class="section-label">03 — Portfolio</p>
+  <h2 class="section-title"><em>Projects</em></h2>
+  <p class="section-body">A showcase of technical and academic projects.</p>
   <span class="coming-soon">Content Coming Soon</span>
 </section>
 
 <section id="contacts">
-  <p class="section-label">08 — Reflection</p>
-  <h2 class="section-title"><em>Reflection</em></h2>
-  <p class="section-body">Thoughtful reflections on your journey through this course — insights gained, challenges overcome, and how inclusive education principles have shaped your perspective as a future teacher.</p>
-  <span class="coming-soon">Content Coming Soon</span>
-</section>
-
-<section id="evidence-online">
-  <p class="section-label">09 — Others</p>
-  <h2 class="section-title">Evidence for <em>Online Class</em></h2>
-  <p class="section-body">Screenshots, attendance records, participation logs, and other documentation serving as evidence of active engagement during online class sessions.</p>
+  <p class="section-label">04 — Get in Touch</p>
+  <h2 class="section-title"><em>Contact and Socials</em></h2>
+  <p class="section-body">Reach out via the channels below.</p>
   <span class="coming-soon">Content Coming Soon</span>
 </section>
 
 <footer>
-  <p>&copy; 2025 <span class="footer-gold">Gayatinea, John Albert</span> &mdash; ED 205-F Portfolio</p>
-  <p>Diploma in Teaching &middot; Foundation of Inclusive Education</p>
+  <p>&copy; 2025 <span class="footer-gold">Harry T. Paclibar</span> &mdash; Portfolio</p>
+  <p>Information Technology Specialist</p>
 </footer>
 
 <script>
@@ -638,7 +654,6 @@
     navLinks.classList.remove('open');
     ham.classList.remove('open');
     ham.setAttribute('aria-expanded', 'false');
-    // For desktop dropdowns
     document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('open'));
     document.querySelectorAll('.dropdown-trigger').forEach(b => { b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
   }
@@ -650,18 +665,17 @@
   });
   navAs.forEach(a => a.addEventListener('click', closeMobileMenu));
 
-  /* ── dropdown factory (Desktop Only Interaction now) ── */
+  /* ── dropdown factory ── */
   function setupDropdown(btnId, menuId){
     const btn  = document.getElementById(btnId);
     const menu = document.getElementById(menuId);
     if (!btn || !menu) return;
     btn.addEventListener('click', e => {
-      if(window.innerWidth <= 960) return; // Disable click behavior on mobile since it's fully expanded
+      if(window.innerWidth <= 960) return;
       e.stopPropagation();
       const isOpen = menu.classList.toggle('open');
       btn.classList.toggle('open', isOpen);
       btn.setAttribute('aria-expanded', String(isOpen));
-      // close sibling dropdowns
       document.querySelectorAll('.dropdown-menu').forEach(m => { if(m!==menu){ m.classList.remove('open'); }});
       document.querySelectorAll('.dropdown-trigger').forEach(b => { if(b!==btn){ b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }});
     });
@@ -675,7 +689,6 @@
   setupDropdown('activitiesBtn','activitiesMenu');
   setupDropdown('othersBtn','othersMenu');
 
-  // click outside closes dropdowns
   document.addEventListener('click', () => {
     if(window.innerWidth > 960) {
       document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('open'));
