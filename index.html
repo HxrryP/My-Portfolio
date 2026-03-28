@@ -150,55 +150,6 @@
     }
     .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 
-    .chevron { font-size: .55rem; transition: transform .3s; display: inline-block; }
-    .dropdown-trigger.open .chevron { transform: rotate(180deg); }
-
-    .dropdown-menu {
-      position: absolute; top: calc(100% + 8px); left: 50%;
-      transform: translateX(-50%) translateY(8px);
-    }
-    .nav-links li:nth-last-child(-n+2) .dropdown-menu {
-      left: auto; right: 0;
-      transform: translateY(8px);
-    }
-    .nav-links li:nth-last-child(-n+2) .dropdown-menu.open {
-      transform: translateY(0);
-    }
-    .dropdown-menu {
-      background: var(--drop-bg);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      min-width: 220px;
-      padding: .5rem 0;
-      opacity: 0; pointer-events: none;
-      transition: opacity .22s ease, transform .22s ease, background 0.4s, border-color 0.4s;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-    .dropdown-menu.open {
-      opacity: 1; pointer-events: all;
-      transform: translateX(-50%) translateY(0);
-    }
-    .dropdown-menu a {
-      display: block; padding: .6rem 1.2rem;
-      font-size: .68rem; letter-spacing: .08em;
-      color: var(--muted); text-decoration: none;
-      text-transform: uppercase;
-      transition: color .2s, background .2s;
-      border-left: 2px solid transparent;
-    }
-    .dropdown-menu a:hover {
-      color: var(--gold-lt);
-      background: var(--dropdown-hover);
-      border-left-color: var(--gold);
-    }
-    .dropdown-menu a::after { display: none !important; }
-    .dropdown-menu .group-label {
-      font-size: .58rem; letter-spacing: .16em; color: var(--gold);
-      padding: .5rem 1.2rem .1rem; text-transform: uppercase; opacity: .65;
-      transition: color 0.4s;
-    }
-
     .nav-actions { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
 
     .theme-toggle {
@@ -264,29 +215,6 @@
         cursor: pointer; width: 100%; justify-content: flex-start;
       }
       .nav-links a::after { display: none !important; }
-
-      .dropdown-menu {
-        position: static !important;
-        transform: none !important;
-        opacity: 1 !important; 
-        max-height: none !important; 
-        pointer-events: all !important;
-        background: var(--mobile-drop-bg);
-        border: none; border-radius: 0;
-        border-left: 2px solid var(--line);
-        margin-left: 1.8rem;
-        padding: 0.25rem 0 0.5rem 0 !important;
-        transition: none;
-      }
-      .dropdown-menu a { padding: .7rem 1.2rem; font-size: .76rem; }
-      .dropdown-menu .group-label { padding: .5rem 1.2rem .1rem; }
-
-      .dropdown-trigger { 
-        pointer-events: none; 
-        color: var(--gold-lt) !important;
-        padding-bottom: 0.3rem !important; 
-      }
-      .dropdown-trigger .chevron { display: none; }
 
       .hamburger { display: flex; }
       body { cursor: auto; }
@@ -455,6 +383,39 @@
       margin-right: 0.5rem;
     }
 
+    /* ── CUSTOM WORK EXPERIENCE STYLES ── */
+    .work-timeline { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 2.5rem; max-width: 650px; }
+    .work-item { border-left: 1px solid var(--line); padding-left: 1.5rem; position: relative; transition: border-color 0.4s; }
+    .work-item::before { 
+      content: ''; position: absolute; left: -4px; top: 6px; 
+      width: 7px; height: 7px; border-radius: 50%; 
+      background: var(--gold); transition: background 0.4s;
+    }
+    .work-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.2rem; }
+    .work-title { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--cream); font-weight: 500; transition: color 0.4s;}
+    .work-date { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: color 0.4s;}
+    .work-company { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; font-style: italic; transition: color 0.4s;}
+    .work-tasks { list-style: none; color: var(--muted); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; transition: color 0.4s;}
+    .work-tasks li::before { content: '▹'; color: var(--gold); margin-right: 0.5rem; }
+
+    /* ── CUSTOM CONTACT & REFERENCES STYLES ── */
+    .contact-grid { display: grid; gap: 3rem; margin-top: 3rem; max-width: 800px; }
+    @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1.2fr; } }
+    .contact-info { display: flex; flex-direction: column; gap: 1.8rem; }
+    .contact-item { display: flex; flex-direction: column; gap: 0.4rem; }
+    .contact-item strong { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.4s; }
+    .contact-item span, .contact-item a { color: var(--cream); font-size: 1.1rem; text-decoration: none; transition: color 0.4s; line-height: 1.5; }
+    .contact-item a:hover { color: var(--gold-lt); }
+    
+    .references { display: flex; flex-direction: column; gap: 1.2rem; }
+    .ref-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: 4px; transition: border-color 0.4s, transform 0.3s, box-shadow 0.3s; background: var(--sec-alt-bg); }
+    .ref-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .ref-name { color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.2rem; transition: color 0.4s; }
+    .ref-title { color: var(--gold-lt); font-size: 0.85rem; font-style: italic; margin-bottom: 1rem; transition: color 0.4s; }
+    .ref-detail { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.4rem; transition: color 0.4s; }
+    .ref-detail a { color: var(--muted); text-decoration: none; transition: color 0.4s;}
+    .ref-detail a:hover { color: var(--gold); }
+
     /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
@@ -485,7 +446,7 @@
     <li><a href="#about">About Me</a></li>
     <li><a href="#work">Work Experience</a></li>
     <li><a href="#Projects">Projects</a></li>
-    <li><a href="#contacts">Contact and Socials</a></li>
+    <li><a href="#contacts">Contact</a></li>
   </ul>
 
   <div class="nav-actions">
@@ -534,7 +495,7 @@
   <p class="section-label">01 — Profile</p>
   <h2 class="section-title">About <em>Me</em></h2>
   <p class="section-body">
-    I am a dedicated professional with experience providing technical support to end users in a corporate environment[cite: 25]. I have a proven track record of resolving complex technical issues quickly and efficiently, while providing excellent customer service[cite: 26]. I am adept at training users on new applications and technologies, working with remote users, and staying abreast of new developments in the IT industry[cite: 28].
+    I am a dedicated professional with experience providing technical support to end users in a corporate environment. I have a proven track record of resolving complex technical issues quickly and efficiently, while providing excellent customer service. I am adept at training users on new applications and technologies, working with remote users, and staying abreast of new developments in the IT industry.
   </p>
 
   <div class="about-subsection">
@@ -542,33 +503,64 @@
     <p class="section-body" style="margin-top: 0; margin-bottom: 0.5rem;">
       <strong>Bachelor of Science: Information Technology</strong><br>
       Iloilo Science and Technology University - Lapaz, Iloilo City <br>
-      <span style="font-size: 0.8rem; opacity: 0.8;">Aug 2019 - Jul 2023 [cite: 30]</span>
+      <span style="font-size: 0.8rem; opacity: 0.8;">Aug 2019 - Jul 2023</span>
     </p>
     <p class="section-body" style="margin-top: 0;">
       <strong>Civil Service Examination Passer</strong><br>
       Professional Level <br>
-      <span style="font-size: 0.8rem; opacity: 0.8;">August 2025 [cite: 44]</span>
+      <span style="font-size: 0.8rem; opacity: 0.8;">August 2025</span>
     </p>
   </div>
 
   <div class="about-subsection">
     <h3 class="about-subheading">Core Skills</h3>
     <ul class="about-list">
-      <li>Virtualization technologies [cite: 7]</li>
-      <li>Network administration [cite: 8]</li>
-      <li>Hardware/Software troubleshooting [cite: 9, 27]</li>
-      <li>Software implementation [cite: 10]</li>
-      <li>System upgrades & maintenance [cite: 11, 27]</li>
-      <li>Application installations & support [cite: 12, 13]</li>
-      <li>Technical issue analysis [cite: 14]</li>
+      <li>Virtualization technologies</li>
+      <li>Network administration</li>
+      <li>Hardware/Software troubleshooting</li>
+      <li>Software implementation</li>
+      <li>System upgrades & maintenance</li>
+      <li>Application installations & support</li>
+      <li>Technical issue analysis</li>
     </ul>
   </div>
 </section>
+
 <section id="work">
   <p class="section-label">02 — Experience</p>
   <h2 class="section-title"><em>Work Experience</em></h2>
-  <p class="section-body">Details regarding past professional experience.</p>
-  <span class="coming-soon">Content Coming Soon</span>
+  <p class="section-body">A detailed look at my professional history and technical roles.</p>
+
+  <div class="work-timeline">
+    
+    <div class="work-item">
+      <div class="work-header">
+        <h3 class="work-title">IT Specialist</h3>
+        <span class="work-date">07/2023 &mdash; Present</span>
+      </div>
+      <p class="work-company">Jaque Foods and Beverages Inc. &mdash; Iloilo City, Iloilo</p>
+      <ul class="work-tasks">
+        <li>Configured and tested new hardware and software.</li>
+        <li>Troubleshot issues on device-specific problems, network performance, and internet connectivity.</li>
+        <li>Handled customer complaints and escalated issues according to procedures.</li>
+        <li>Supported customers and colleagues with catered technical advice.</li>
+        <li>Inspected equipment and read order sheets to prepare for delivery to users.</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-header">
+        <h3 class="work-title">IT Technical Support Intern</h3>
+        <span class="work-date">02/2023 &mdash; 06/2023</span>
+      </div>
+      <p class="work-company">The Medical City Iloilo &mdash; Molo, Iloilo City</p>
+      <ul class="work-tasks">
+        <li>Set up equipment for employee use, performed and ensured proper installation of cables, operating systems, and appropriate software.</li>
+        <li>Handled customer complaints and escalated issues according to procedures.</li>
+      </ul>
+    </div>
+
+  </div>
 </section>
 
 <section id="Projects">
@@ -580,9 +572,43 @@
 
 <section id="contacts">
   <p class="section-label">04 — Get in Touch</p>
-  <h2 class="section-title"><em>Contact and Socials</em></h2>
-  <p class="section-body">Reach out via the channels below.</p>
-  <span class="coming-soon">Content Coming Soon</span>
+  <h2 class="section-title"><em>Contact & References</em></h2>
+  <p class="section-body">Feel free to reach out via the channels below or contact my character references.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <strong>Email</strong>
+        <a href="mailto:iam.hxrry14@gmail.com">iam.hxrry14@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <span>0968 546 1843</span>
+      </div>
+      <div class="contact-item">
+        <strong>Location</strong>
+        <span>Zone 1 Brgy. Calumpang, Molo<br>Iloilo City, Iloilo 5000</span>
+      </div>
+    </div>
+
+    <div class="references">
+      <h3 class="about-subheading" style="margin-bottom: 0;">Character References</h3>
+      
+      <div class="ref-card">
+        <h4 class="ref-name">Analiza Tercena</h4>
+        <p class="ref-title">HR Manager &mdash; Grupocerveza Group Of Companies</p>
+        <p class="ref-detail">📞 09176337287</p>
+        <p class="ref-detail">✉️ <a href="mailto:tercenaaa.jfbi@grupocerveza.com">tercenaaa.jfbi@grupocerveza.com</a></p>
+      </div>
+
+      <div class="ref-card">
+        <h4 class="ref-name">Jasmin Gas</h4>
+        <p class="ref-title">Faculty &mdash; TIP - Manila Campus</p>
+        <p class="ref-detail">📞 097745181812</p>
+        <p class="ref-detail">✉️ <a href="mailto:jasmingas50@gmail.com">jasmingas50@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -654,8 +680,6 @@
     navLinks.classList.remove('open');
     ham.classList.remove('open');
     ham.setAttribute('aria-expanded', 'false');
-    document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('open'));
-    document.querySelectorAll('.dropdown-trigger').forEach(b => { b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
   }
 
   ham.addEventListener('click', () => {
@@ -664,38 +688,6 @@
     ham.setAttribute('aria-expanded', String(open));
   });
   navAs.forEach(a => a.addEventListener('click', closeMobileMenu));
-
-  /* ── dropdown factory ── */
-  function setupDropdown(btnId, menuId){
-    const btn  = document.getElementById(btnId);
-    const menu = document.getElementById(menuId);
-    if (!btn || !menu) return;
-    btn.addEventListener('click', e => {
-      if(window.innerWidth <= 960) return;
-      e.stopPropagation();
-      const isOpen = menu.classList.toggle('open');
-      btn.classList.toggle('open', isOpen);
-      btn.setAttribute('aria-expanded', String(isOpen));
-      document.querySelectorAll('.dropdown-menu').forEach(m => { if(m!==menu){ m.classList.remove('open'); }});
-      document.querySelectorAll('.dropdown-trigger').forEach(b => { if(b!==btn){ b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }});
-    });
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if(window.innerWidth > 960) {
-        menu.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded','false');
-      }
-      closeMobileMenu();
-    }));
-  }
-  setupDropdown('activitiesBtn','activitiesMenu');
-  setupDropdown('othersBtn','othersMenu');
-
-  document.addEventListener('click', () => {
-    if(window.innerWidth > 960) {
-      document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('open'));
-      document.querySelectorAll('.dropdown-trigger').forEach(b => { b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
-    }
-  });
-  document.querySelectorAll('.dropdown-menu').forEach(m => m.addEventListener('click', e => e.stopPropagation()));
 
   /* ── smooth scroll with nav offset ── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
