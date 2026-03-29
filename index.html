@@ -106,26 +106,30 @@
     }
     nav.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.08); }
 
+    /* The logo and actions are set to flex: 1 to perfectly center the nav-links between them */
     .nav-logo {
       text-decoration: none;
       display: flex; flex-direction: column; justify-content: center;
       line-height: 1.3; flex-shrink: 0;
+      flex: 1; /* Balances out nav-actions */
     }
     .nav-logo .logo-course {
       font-family: 'Cormorant Garamond', serif;
-      font-size: .84rem; font-weight: 600; letter-spacing: .14em;
+      font-size: 1.15rem; /* Increased size */
+      font-weight: 600; letter-spacing: .12em;
       color: var(--gold); text-transform: uppercase;
       transition: color 0.4s;
     }
     .nav-logo .logo-title {
-      font-size: .62rem; font-weight: 300; letter-spacing: .04em;
+      font-size: .8rem; /* Increased size */
+      font-weight: 300; letter-spacing: .04em;
       color: var(--cream); opacity: .7;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       max-width: 360px; transition: color 0.4s;
     }
 
     .nav-links {
-      display: flex; align-items: center;
+      display: flex; align-items: center; justify-content: center;
       list-style: none; gap: 0;
     }
     .nav-links li { position: relative; }
@@ -150,7 +154,10 @@
     }
     .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 
-    .nav-actions { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
+    .nav-actions { 
+      display: flex; align-items: center; justify-content: flex-end; gap: 1rem; 
+      flex: 1; /* Balances out nav-logo to center nav-links */
+    }
 
     .theme-toggle {
       background: none; border: none; color: var(--gold-lt); cursor: none;
@@ -182,8 +189,9 @@
     /* ══════════════ MOBILE NAV CHANGES ══════════════ */
     @media (max-width: 960px) {
       nav { padding: 0 1.25rem; }
+      .nav-logo { flex: none; } /* Reset flex on mobile */
       .nav-logo .logo-title { max-width: 180px; }
-      .nav-actions { margin-left: auto; }
+      .nav-actions { flex: none; margin-left: auto; justify-content: flex-end; }
 
       .nav-links {
         position: absolute;
@@ -472,14 +480,12 @@
 <section id="home">
   <div class="corner corner-tl"></div>
   <div class="corner corner-br"></div>
-  <div class="hero-bg-text">Inclusive Ed</div>
+  <div class="hero-bg-text">IT Pro</div>
 
-  <p class="hero-tag">IT Specialist &nbsp;·&nbsp; JFBI</p>
-  <h1 class="hero-name">Harry T. <em>Paclibar</em></h1>
+  <p class="hero-tag">Information Technology Specialist &nbsp;·&nbsp; Iloilo City</p>
+  <h1 class="hero-name">Harry <em>Paclibar</em></h1>
   <p class="hero-sub">
-    A curated portfolio of learning activities, reflections, and evidence from
-    <em style="color:var(--gold-lt);font-style:italic;">Foundation of Inclusive Education</em> —
-    documenting growth and advocacy for inclusive practice.
+    A dedicated professional specializing in technical support, system maintenance, and network configuration — resolving complex technical issues quickly to ensure seamless operations.
   </p>
   <div class="hero-cta">
     <a href="#about"        class="btn-primary">About Me</a>
