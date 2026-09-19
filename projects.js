@@ -4,17 +4,20 @@ const projectDetails = {
   barangay: {
     category: '01 / CAPSTONE WEBSITE',
     title: 'Barangay Transaction Management System',
-    intro: 'A sample staff dashboard for tracking requests through simple stages.'
+    intro: 'A sample staff dashboard for tracking requests through simple stages.',
+    page: 'case-studies/barangay.html'
   },
-  anilao: {
+  municipal: {
     category: '02 / WEB PROJECT',
-    title: 'Anilao E-Services',
-    intro: 'A sample resident page for finding services and preparing a request.'
+    title: 'Municipal E-Services',
+    intro: 'A sample resident page for finding services and preparing a request.',
+    page: 'case-studies/municipal.html'
   },
   tracker: {
     category: '03 / PERSONAL PROJECT',
     title: 'Monthly Payment Tracker',
-    intro: 'An illustrative monthly view of scheduled payments and progress.'
+    intro: 'An illustrative monthly view of scheduled payments and progress.',
+    page: 'case-studies/tracker.html'
   }
 };
 let openingProjectLink = null;
@@ -148,14 +151,18 @@ for (const link of projectLinks) {
     document.getElementById('project-dialog-label').textContent = project.category;
     document.getElementById('project-dialog-title').textContent = project.title;
     document.getElementById('project-dialog-intro').textContent = project.intro;
+    document.getElementById('project-case-study').href = project.page;
     for (const view of document.querySelectorAll('[data-project-view]')) view.hidden = view.dataset.projectView !== link.dataset.project;
     if (link.dataset.project === 'barangay') document.getElementById('reset-cases').click();
-    if (link.dataset.project === 'anilao') selectMunicipalService('certificate');
+    if (link.dataset.project === 'municipal') selectMunicipalService('certificate');
     if (link.dataset.project === 'tracker') {trackerMonth.value = 'oct'; renderTrackerMonth();}
     projectDialog.showModal();
-    (link.dataset.project === 'barangay' ? caseFilter : link.dataset.project === 'anilao' ? municipalButtons[0] : trackerMonth).focus();
+    (link.dataset.project === 'barangay' ? caseFilter : link.dataset.project === 'municipal' ? municipalButtons[0] : trackerMonth).focus();
   });
 }
+
+const previewSlug = /^#preview-(barangay|municipal|anilao|tracker)$/.exec(window.location?.hash || '')?.[1];
+if (previewSlug) document.querySelector(`[data-project="${previewSlug === 'anilao' ? 'municipal' : previewSlug}"]`)?.click();
 
 projectDialog.addEventListener('click', event => {
   if (event.target === projectDialog || event.target.closest('[data-close-project]')) projectDialog.close();
