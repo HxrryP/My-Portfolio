@@ -2,19 +2,19 @@ const projectDialog = document.getElementById('project-dialog');
 const projectLinks = document.querySelectorAll('[data-project]');
 const projectDetails = {
   barangay: {
-    category: '01 / CAPSTONE WEBSITE',
+    category: 'CAPSTONE WEBSITE',
     title: 'Barangay Transaction Management System',
     intro: 'A sample staff dashboard for tracking requests through simple stages.',
     page: 'case-studies/barangay.html'
   },
   municipal: {
-    category: '02 / WEB PROJECT',
+    category: 'WEB PROJECT',
     title: 'Municipal E-Services',
     intro: 'A sample resident page for finding services and preparing a request.',
     page: 'case-studies/municipal.html'
   },
   tracker: {
-    category: '03 / PERSONAL PROJECT',
+    category: 'PERSONAL PROJECT',
     title: 'Monthly Payment Tracker',
     intro: 'An illustrative monthly view of scheduled payments and progress.',
     page: 'case-studies/tracker.html'

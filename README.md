@@ -2,6 +2,8 @@
 
 A static personal portfolio built for the existing `My-Portfolio` GitHub Pages site. HTML, CSS, and a tiny JavaScript file; no build step or paid hosting.
 
+The compact menu icon at the lower right opens quick links to Top, Services, Projects, Experience, and Contact. After scrolling, an up-arrow gives visitors a direct way back to the top. The menu closes when a link is chosen, on outside click, or with Escape. Decorative section and card numbering has been removed.
+
 The three service cards open interactive dialogs with examples tailored to a visitor's chosen need. The spreadsheet dialog includes an illustrative estimate of time currently spent on a repeated task; it does not promise time savings. The **Ask me about this** button takes the visitor to the contact form and drafts a topic without submitting anything.
 
 The three project cards open sample interfaces: a filterable request queue with status changes, a resident service guide with a preparation checklist, and a monthly payment view with checkboxes and running totals. These are illustrative portfolio previews built from invented data, not the original project screens or live government services. None of the sample interactions submit or store information.

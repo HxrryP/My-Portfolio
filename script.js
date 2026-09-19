@@ -3,7 +3,7 @@ if (year) year.textContent = new Date().getFullYear();
 
 const services = {
   sheets: {
-    category: '01 / ORGANIZE',
+    category: 'ORGANIZE',
     title: 'Spreadsheets & reporting',
     intro: 'Choose a familiar spreadsheet headache to see how I might tackle it.',
     scenarios: [
@@ -13,7 +13,7 @@ const services = {
     ]
   },
   workflow: {
-    category: '02 / SIMPLIFY',
+    category: 'SIMPLIFY',
     title: 'Workflow & small tools',
     intro: 'Pick the step that keeps eating your team’s time.',
     scenarios: [
@@ -23,7 +23,7 @@ const services = {
     ]
   },
   support: {
-    category: '03 / SUPPORT',
+    category: 'SUPPORT',
     title: 'IT support',
     intro: 'Select a common issue to see what I would investigate first.',
     scenarios: [
@@ -118,3 +118,52 @@ document.getElementById('dialog-inquire').addEventListener('click', () => {
   document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
   message.focus({preventScroll: true});
 });
+
+const pageRail = document.querySelector('.page-rail');
+if (pageRail) {
+  const toggle = pageRail.querySelector('.page-rail-toggle');
+  const links = pageRail.querySelector('.page-rail-links');
+  const backToTop = pageRail.querySelector('.page-rail-top');
+  const destinations = [...links.querySelectorAll('a')];
+
+  function setRailOpen(open) {
+    links.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close page navigation' : 'Open page navigation');
+  }
+
+  toggle.addEventListener('click', () => setRailOpen(links.hidden));
+  destinations.forEach(link => link.addEventListener('click', () => setRailOpen(false)));
+  backToTop.addEventListener('click', () => setRailOpen(false));
+  document.addEventListener('pointerdown', event => {
+    if (!pageRail.contains(event.target)) setRailOpen(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !links.hidden) {
+      setRailOpen(false);
+      toggle.focus();
+    }
+  });
+
+  let scrollQueued = false;
+  function updateRail() {
+    backToTop.hidden = window.scrollY < 320;
+    const current = [...destinations].reverse().find(link => {
+      const target = document.querySelector(link.getAttribute('href'));
+      return target && target.getBoundingClientRect().top <= window.innerHeight * .35;
+    }) || destinations[0];
+    destinations.forEach(link => {
+      if (link === current) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    scrollQueued = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scrollQueued) {
+      scrollQueued = true;
+      requestAnimationFrame(updateRail);
+    }
+  }, {passive: true});
+  window.addEventListener('resize', updateRail);
+  updateRail();
+}
